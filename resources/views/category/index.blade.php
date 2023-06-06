@@ -22,7 +22,7 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-md-8 d-flex text-start">
-                                    <h5 class="mb-0 text-primary"><b>Create new<br>Portofolio</b></h5>
+                                    <h5 class="mb-0 text-primary"><b>Create new<br>Categories</b></h5>
                                 </div>
                                 <div class="col-md-4 text-end">
                                     <button onclick="closeCreateModal()"
@@ -40,56 +40,20 @@
                                             {{ session('success') }}
                                         </div>
                                     @endif
-                                    <form action="{{ url('/portofolios') }}" enctype="multipart/form-data" method="post"
+                                    <form action="{{ url('/categories') }}" enctype="multipart/form-data" method="post"
                                         class="text-start">
                                         @csrf
                                         <div class="mb-2">
-                                            <label for="photo">Portofolio Photo</label>
+                                            <label for="jenis">Jenis Categories</label>
                                             <input class="form-control @error('portoflio') is-invalid @enderror "
-                                                type="file" name="photo" id="photo">
-                                            @error('photo')
+                                                type="jenis" name="jenis" id="jenis">
+                                            @error('jenis')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
-                                            @enderror
-                                            <div class="mb-2">
-                                                <label for="name">Portofolio Name</label>
-                                                <input class="form-control @error('name') is-invalid @enderror"
-                                                    type="name" name="nama" id="nama" placeholder="WEBSITE"
-                                                    value="{{ old('name') }}">
-                                                @error('nama')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                                <div class="mb-2">
-                                                    <label for="description">Description</label>
-                                                    <textarea class="form-control @error('description') is-invalid @enderror " type="description" name="description"
-                                                        id="description" placeholder="description">{{ old('description') }}</textarea>
-                                                    @error('description')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                                <div class="mb-2">
-                                                    <label for="category">Category</label>
-                                                    <select class="form-control @error('id_category') is-invalid @enderror"
-                                                        name="id_category" id="category">
-                                                        <option value="">Select Category</option>
-                                                        @foreach ($categories as $category)
-                                                            <option value="{{ $category->id }}">{{ $category->name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                    @error('id_category')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
                                             </div>
-                                            <button class="btn btn-primary mt-2 w-100" type="submit">add this data</button>
+                                        @enderror
+                                        <button class="btn btn-primary mt-2 w-100" type="submit">add this data</button>
                                     </form>
                                 </div>
                             </div>
@@ -118,11 +82,11 @@
                         <div class="card-header pb-0">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h6>Portofolio Data</h6>
+                                    <h6>Categories Data</h6>
                                 </div>
                                 <div class="col-md-6 text-end">
                                     <button class="btn btn-primary" type="button" onclick="showCreateModal()">register
-                                        portofolio</button>
+                                        Categories</button>
                                 </div>
                             </div>
                         </div>
@@ -134,17 +98,9 @@
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 ID</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Photo URL</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Portofolio Name</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Description</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                CategoryId</th>
+                                                Jenis</th>
                                             </th>
                                         </tr>
                                     </thead>
@@ -154,36 +110,24 @@
                                                 <td class="text-center">
                                                     <p class="text-xs font-weight-bold mb-0">{{ $loop->iteration }}</p>
                                                 </td>
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <img src="{{ asset($item->photo) }}" alt="" width="180">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <p class="text-xs text-secondary mb-0">
-                                                                {{ $item->photo }}&nbsp;&nbsp;&nbsp;</p>
-                                                        </div>
-                                                    </div>
-                                                </td>
-
                                                 <td class="align-middle text-center">
-                                                    <p class="text-xs font-weight-bold mb-0">{{ $item->nama }}</p>
+                                                    <p class="text-xs font-weight-bold mb-0">{{ $item->jenis }}</p>
                                                 </td>
-                                                <td class="align-middle text-center">
-                                                    <p class="text-xs font-weight-bold mb-0">{{ $item->description }}</p>
                                                 <td class="text-center d-flex">
-                                                    <a href="{{ url('/portfolios/' . $item->id) }}"
+                                                    {{-- <a href="{{ url('/categories/' . $item->id) }}"
                                                         class="btn btn-sm btn-primary px-3 text-light text-center me-2">
                                                         <i class="fa-solid fa-eye" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="{{ url('/portofolios/' . $item->id . '/edit') }}"
+                                                    </a> --}}
+                                                    <a href="{{ url('/categories/' . $item->id . '/edit') }}"
                                                         class="btn btn-sm btn-secondary px-3 text-light text-center me-2">
                                                         <i class="fa-solid fa-pen" aria-hidden="true"></i>
                                                     </a>
-                                                    <form action="{{ url('/portofolios/' . $item->id) }}" method="post">
+                                                    <form action="{{ url('/categories/' . $item->id) }}" method="post">
                                                         @method('delete')
                                                         @csrf
                                                         <button class="btn btn-sm btn-danger px-3 text-center me-2"
                                                             data-toggle="tooltip" data-original-title="Edit user"
-                                                            onclick="return confirm('Are you sure want to delete {{ $item->nama }}?')">
+                                                            onclick="return confirm('Are you sure want to delete {{ $item->jenis_category }}?')">
                                                             <i class="fa fa-trash" aria-hidden="true"></i>
                                                         </button>
                                                     </form>

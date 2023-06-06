@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\portofolio;
+use App\Models\Category;
 
 class portofolioController extends Controller
 {
@@ -15,7 +16,8 @@ class portofolioController extends Controller
 
     public function create()
     {
-        return view('portofolio.create');
+        $categories = Category::all();
+        return view('portofolio.create', compact('categories'));
         
     }
 

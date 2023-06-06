@@ -1,29 +1,24 @@
 <?php
 
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Portofolio extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    protected $table = 'portofolio';
+    protected $table = 'category';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'photo',
-        'nama',
-        'description',
-        'id_category',
+        'jenis_category',
     ];
 
     public $timestamps = false; // menonaktifkan fitur timestamps
 
-    public function category()
+    public function portofolios()
     {
-        return $this->belongsTo(Category::class, 'id_category', 'id');
+        return $this->hasMany(Portofolio::class, 'id_category', 'id');
     }
 }
-

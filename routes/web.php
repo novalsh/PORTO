@@ -46,7 +46,21 @@ Route::get('/portofolios/{portofolio}/edit', [App\Http\Controllers\portofolioCon
 
 Route::put('/portofolios/{portofolio}', [App\Http\Controllers\portofolioController::class, 'update'])->name('portofolios.update');
 
-Route::put('/portfolios/{portfolio}', [App\Http\Controllers\portofolioController::class, 'update'])->name('portfolios.update');
-
 Route::delete('/portofolios/{portofolio}', [App\Http\Controllers\portofolioController::class, 'destroy'])->name('portofolios.destroy');
+
+
+Route::resource('/categories', App\Http\Controllers\CategoryController::class);
+
+Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories.index');
+
+Route::get('/categories/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('categories.create');
+
+Route::post('/categories', [App\Http\Controllers\CategoryController::class, 'store'])->name('categories.store');
+
+Route::get('/categories/{category}/edit', [App\Http\Controllers\CategoryController::class, 'edit'])->name('categories.edit');
+
+Route::put('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'update'])->name('categories.update');
+
+Route::delete('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('categories.destroy');
+
 
