@@ -134,8 +134,15 @@
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 ID</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Photo URL</th>
+
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Category Id</th>
+
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Portofolio Name</th>
@@ -144,7 +151,8 @@
                                                 Description</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                CategoryId</th>
+                                                Action
+
                                             </th>
                                         </tr>
                                     </thead>
@@ -162,6 +170,11 @@
                                                                 {{ $item->photo }}&nbsp;&nbsp;&nbsp;</p>
                                                         </div>
                                                     </div>
+                                                </td>
+
+                                                <td class="align-middle text-center">
+                                                    <p class="text-xs font-weight-bold mb-0">{{ $item->id_category }}
+                                                    </p>
                                                 </td>
 
                                                 <td class="align-middle text-center">
