@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\portofolioController;
+use App\Http\Controllers\dashboard;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,12 @@ use App\Http\Controllers\portofolioController;
 
 Route::get('/', [\App\Http\Controllers\WebController::class, 'index']);
 
-Auth::routes(['register' => false, 'confirm' => false]);
+Auth::routes(['confirm' => true]);
+
+Route::get('/daftar', [RegisterController::class, 'index'])->name('daftar');
+
+
+Route::resource('/portfolios', App\Http\Controllers\portofolioController::class);
 
 Route::get('/dashboard', function (){
     return view('dashboard.dashboard');
