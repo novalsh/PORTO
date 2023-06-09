@@ -16,14 +16,15 @@ class Portofolio extends Model
         'photo',
         'nama',
         'description',
-        'id_category',
     ];
 
     public $timestamps = false; // menonaktifkan fitur timestamps
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class, 'id_category', 'id');
+        return $this->hasMany(Category::class, 'id', 'id_category');
     }
+    
+    
 }
 

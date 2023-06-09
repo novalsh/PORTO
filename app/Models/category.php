@@ -12,14 +12,14 @@ class Category extends Model
     protected $table = 'category';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'jenis_category',
         'jenis'
     ];
 
     public $timestamps = false; // menonaktifkan fitur timestamps
 
-    public function portofolios()
+    public function portfolios()
     {
-        return $this->hasMany(Portofolio::class, 'id_category', 'id');
+        return $this->hasMany(Portofolio::class, 'id_category');
     }
+    
 }
