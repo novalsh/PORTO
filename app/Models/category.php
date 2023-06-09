@@ -13,6 +13,7 @@ class Category extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'jenis_category',
+        'jenis'
     ];
 
     public $timestamps = false; // menonaktifkan fitur timestamps

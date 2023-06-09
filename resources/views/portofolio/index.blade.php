@@ -78,7 +78,7 @@
                                                         name="id_category" id="category">
                                                         <option value="">Select Category</option>
                                                         @foreach ($categories as $category)
-                                                            <option value="{{ $category->id }}">{{ $category->name }}
+                                                            <option value="{{ $category->id }}">{{ $category->jenis }}
                                                             </option>
                                                         @endforeach
                                                     </select>
@@ -141,7 +141,7 @@
 
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Category Id</th>
+                                                Jenis Category</th>
 
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -157,7 +157,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($admins as $index => $item)
+                                        @foreach ($portfolios as $index => $item)
                                             <tr>
                                                 <td class="text-center">
                                                     <p class="text-xs font-weight-bold mb-0">{{ $loop->iteration }}</p>
@@ -173,8 +173,9 @@
                                                 </td>
 
                                                 <td class="align-middle text-center">
-                                                    <p class="text-xs font-weight-bold mb-0">{{ $item->id_category }}
-                                                    </p>
+                                                    @if ($item->category)
+                                                        <p class="text-xs font-weight-bold mb-0">{{ $item->category->jenis }}</p>
+                                                    @endif
                                                 </td>
 
                                                 <td class="align-middle text-center">

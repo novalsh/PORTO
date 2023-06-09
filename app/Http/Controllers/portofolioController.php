@@ -4,19 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\portofolio;
-use App\Models\Category;
+use App\Models\Category as category;
 
 class portofolioController extends Controller
 {
     public function index()
     {
-        $admins = portofolio::all();
-        return view('portofolio.index', compact('admins'));
+        $portfolios = Portofolio::with('category')->get();
+        $categories = Category::all();
+        return view('portofolio.index', ['portfolios' => $portfolios,'categories' => $categories]);
     }
+    
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = category::all();
         return view('portofolio.create', compact('categories'));
         
     }
