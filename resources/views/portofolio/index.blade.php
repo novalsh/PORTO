@@ -171,10 +171,14 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                
-                                                {{-- <td class="align-middle text-center">
-                                                    <p class="text-xs font-weight-bold mb-0">{{$item->category->jenis}}</p>
-                                                </td> --}}
+
+                                                @foreach($categories as $category)
+                                                <td class="align-middle text-center">
+                                                    @if ($item->id_category == $category->id)
+                                                    <p class="text-xs font-weight-bold mb-0">{{ $category->jenis }}</p>
+                                                    @endif
+                                                </td>
+                                                @endforeach
 
                                                 <td class="align-middle text-center">
                                                     <p class="text-xs font-weight-bold mb-0">{{ $item->nama }}</p>

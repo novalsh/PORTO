@@ -2,6 +2,9 @@
 
 @section('main-content')
 
+@php
+        $categories = \App\Models\Category::all();
+    @endphp
     {{--  --}}
 @section('breadcrumb')
     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="{{ url('/dashboard') }}">Dashboard</a></li>
@@ -27,7 +30,8 @@
                                             {{ session('success') }}
                                         </div>
                                     @endif
-                                    <form method="post" action="{{ route('portfolios.update', $admins->id) }}" enctype="multipart/form-data">
+                                    <form method="post" action="{{ route('portfolios.update', $admins->id) }}"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         @method('put')
                                         <div class='mb-2'>
@@ -59,6 +63,23 @@
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
+                                                    <div class="mb-2">
+                                                        <label for="category">Category</label>
+                                                        <select
+                                                            class="form-control @error('id_category') is-invalid @enderror"
+                                                            name="id_category" id="category">
+                                                            <option value="">Select Category</option>
+                                                            @foreach ($categories as $category)
+                                                                <option value="{{ $category->id }}">{{ $category->jenis }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('id_category')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

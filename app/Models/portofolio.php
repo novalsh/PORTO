@@ -13,6 +13,7 @@ class Portofolio extends Model
     protected $table = 'portofolio';
     protected $primaryKey = 'id';
     protected $fillable = [
+        'id_category',
         'photo',
         'nama',
         'description',

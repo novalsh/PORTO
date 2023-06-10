@@ -34,6 +34,7 @@ class portofolioController extends Controller
         $imageName = $request->file('photo')->store('upload', ['disk' => 'public']);
 
             $datas = new portofolio;
+            $datas->id_category = $request->id_category;
             $datas->photo ='/storage/' . $imageName;
             $datas->nama = $request->nama;
             $datas->description = $request->description;

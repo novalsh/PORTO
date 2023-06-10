@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('portofolio', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_category')->constrained('category')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('photo');
-            $table->string('nama');
-            $table->string('description');
+            $table->string('jenis');
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('portofolio');
+        //
     }
 };
