@@ -26,9 +26,9 @@ Route::get('/daftar', [RegisterController::class, 'index'])->name('daftar');
 
 Route::resource('/portfolios', App\Http\Controllers\portofolioController::class);
 
-Route::get('/dashboard', function (){
-    return view('dashboard.dashboard');
-});
+// Route::get('/dashboard', function (){
+//     return view('dashboard.dashboard');
+// });
 
 Route::get('/dashboard', [App\Http\Controllers\dashboard::class, 'index'])->name('dashboard.index');
 

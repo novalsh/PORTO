@@ -12,8 +12,8 @@ class dashboard extends Controller
      */
     public function index()
     {
-        $admins = portofolio::all();
-        return view('dashboard.dashboard', compact('admins'));
+        $portfolios = Portofolio::all();
+        return view('dashboard.dashboard', compact('portfolios'));
     }
 
     /**

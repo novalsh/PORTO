@@ -174,10 +174,12 @@
                         </div>
                         <div class="mb-12 p-4 md:w-1/2">
                             <div class="rounded-md shadow-md overflow-hidden">
-                                @foreach ($admins as $admin)
-                                    <img src="{{ asset($admin->photo) }}" alt="" width="w-full">
+                                @foreach ($portfolios as $admin)
+                                    <img src="{{ asset($admin->photo)}}" alt=""
+                                        width="w-full">
                                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{ $admin->nama }}</h3>
                                     <p class="font-medium text-base text-secondary">{{ $admin->description }}</p>
+                                    {{-- <p class="font-medium text-base text-secondary">{{ $admin->jenis }}</p> --}}
                                 @endforeach
                                 </a>
                             </div>
