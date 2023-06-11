@@ -177,9 +177,15 @@
                                 @foreach ($portfolios as $admin)
                                     <img src="{{ asset($admin->photo)}}" alt=""
                                         width="w-full">
+                                        <h1 class="align-middle text-center">
+                                            @foreach($categories as $category)
+                                            @if ($admin->id_category == $category->id)
+                                            <p class="text-xs font-weight-bold mb-0">{{$category->jenis}}</p>
+                                            @endif
+                                            @endforeach
+                                        </h1>
                                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{ $admin->nama }}</h3>
                                     <p class="font-medium text-base text-secondary">{{ $admin->description }}</p>
-                                    {{-- <p class="font-medium text-base text-secondary">{{ $admin->jenis }}</p> --}}
                                 @endforeach
                                 </a>
                             </div>

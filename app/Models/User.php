@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject; // Tambahkan baris ini
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject // Tambahkan implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -41,4 +42,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Tambahkan metode ini
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    // Tambahkan metode ini
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }

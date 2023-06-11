@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\portofolio;
+use App\Models\category;
 
 class dashboard extends Controller
 {
@@ -12,8 +13,9 @@ class dashboard extends Controller
      */
     public function index()
     {
-        $portfolios = Portofolio::all();
-        return view('dashboard.dashboard', compact('portfolios'));
+        $portfolios = Portofolio::with(['categories'])->get();
+        $categories = Category::all();
+        return view('dashboard.dashboard', compact('portfolios','categories'));
     }
 
     /**
