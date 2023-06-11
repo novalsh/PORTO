@@ -9,11 +9,6 @@ use App\Models\category;
 class portofolioController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         $portfolios = Portofolio::with(['categories'])->get();

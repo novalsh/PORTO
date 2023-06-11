@@ -90,18 +90,20 @@ class ApiController extends Controller
 
     public function update(Request $request, string $id)
     {
-
+        $datas = portofolio::find($id);
+        
         $request->validate([
             'nama' => 'required',
             'description' => 'required',
           ]);
   
-              $datas = portofolio::findOrFail($id);
 
               $datas->nama = $request->nama;
               $datas->description = $request->description;
               $datas->save();
-                return response('update data success');
+  
+              return response('update data success');
+        
     }
 
     public function destroy(string $id)

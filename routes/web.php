@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\portofolioController;
 use App\Http\Controllers\dashboard;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::get('/', [\App\Http\Controllers\WebController::class, 'index']);
 
 Auth::routes(['confirm' => true]);
 
-Route::get('/daftar', [RegisterController::class, 'index'])->name('daftar');
+Route::post('/login', [LoginController::class, 'login']);
 
 
 Route::resource('/portfolios', App\Http\Controllers\portofolioController::class);
