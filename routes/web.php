@@ -24,8 +24,9 @@ Auth::routes(['confirm' => true]);
 
 Route::post('/login', [LoginController::class, 'login']);
 
-
 Route::resource('/portfolios', App\Http\Controllers\portofolioController::class);
+
+Route::post('/logout', [LoginController::class, 'loggedOut'])->name('logout');
 
 // Route::get('/dashboard', function (){
 //     return view('dashboard.dashboard');

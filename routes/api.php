@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\categoryAPI;
 
 Route::post('login', [ApiController::class, 'login']);
+Route::post('logout',[ApiController::class, 'logout']);
 
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('portofolio', [ApiController::class, 'index']);

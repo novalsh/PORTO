@@ -9,11 +9,7 @@ class logout extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('logout');
-    }
-
+   
     /**
      * Show the form for creating a new resource.
      */
