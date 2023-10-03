@@ -149,6 +149,7 @@
                                 </a>
                             </div>
                         </div>
+                    
                         <div class="mb-12 p-4 md:w-1/2">
                             <div class="rounded-md shadow-md overflow-hidden">
                                 <a href="https://github.com/novalsh?tab=repositories/" target="_blank">
@@ -161,6 +162,7 @@
                                 </a>
                             </div>
                         </div>
+                        
                         <div class="mb-12 p-4 md:w-1/2">
                             <div class="rounded-md shadow-md overflow-hidden">
                                 <img src="img/FL.JPG" alt="FreshmanLeader" width="w-full">
@@ -172,18 +174,25 @@
                                 </a>
                             </div>
                         </div>
+                        
+                        <div class="mb-16 p-4 md:w-1/2">
+                            <div class="rounded-md shadow-md overflow-hidden">
+                                <a href="https://github.com/novalsh" target="_blank">
+                                <img src="img/github.JPG" alt="FreshmanLeader" width="w-full">
+                                <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Github</h3>
+                                <p class="font-medium text-base text-secondary">Untuk Lebih Lengkapnya dapat Dilihat pada Github Saya.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                            
+                        </div>
                         <div class="mb-12 p-4 md:w-1/2">
                             <div class="rounded-md shadow-md overflow-hidden">
-                                @foreach ($portfolios as $admin)
-                                    <img src="{{ asset($admin->photo)}}" alt=""
-                                        width="w-full">
-                                        <h1 class="align-middle text-center">
-                                            @foreach($categories as $category)
-                                            @if ($admin->id_category == $category->id)
-                                            <p class="text-xs font-weight-bold mb-0">{{$category->jenis}}</p>
-                                            @endif
-                                            @endforeach
-                                        </h1>
+                                @foreach ($admins as $admin)
+                                    <img src="{{ asset($admin->photo) }}" alt="" width="w-full">
                                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{ $admin->nama }}</h3>
                                     <p class="font-medium text-base text-secondary">{{ $admin->description }}</p>
                                 @endforeach
