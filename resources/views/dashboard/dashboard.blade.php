@@ -6,6 +6,7 @@
     <html lang="en">
 
     <head>
+        
         <meta charset="UTF-15">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -191,11 +192,11 @@
                         </div>
                         <div class="mb-12 p-4 md:w-1/2">
                             <div class="rounded-md shadow-md overflow-hidden">
-                                @foreach ($admins as $admin)
+                                {{-- @foreach ($admins as $admin)
                                     <img src="{{ asset($admin->photo) }}" alt="" width="w-full">
                                     <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{ $admin->nama }}</h3>
                                     <p class="font-medium text-base text-secondary">{{ $admin->description }}</p>
-                                @endforeach
+                                @endforeach --}}
                                 </a>
                             </div>
                         </div>
